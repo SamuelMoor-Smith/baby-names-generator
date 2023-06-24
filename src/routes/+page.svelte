@@ -48,11 +48,11 @@
 	/**
 	 * @type {string}
 	 */
-	let cinemaType = 'tv show';
+	// let cinemaType = 'tv show';
 	/**
 	 * @type {Array<string>}
 	 */
-	let selectedCategories = [];
+	let selectedKeywords = [];
 	let specificDescriptors = '';
 
 	async function search() {
@@ -62,17 +62,17 @@
 		endStream = false;
 		loading = true;
 
-		let fullSearchCriteria = `Give me a list of 5 ${cinemaType} recommendations ${
-			selectedCategories ? `that fit all of the following categories: ${selectedCategories}` : ''
+		let fullSearchCriteria = `Give me a list of 5 baby name recommendations ${
+			selectedKeywords ? `that fit all of the following meanings/keywords/descriptions: ${selectedKeywords}` : ''
 		}. ${
 			specificDescriptors
 				? `Make sure it fits the following description as well: ${specificDescriptors}.`
 				: ''
 		} ${
-			selectedCategories || specificDescriptors
-				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other ${cinemaType}'s that I might like.`
+			selectedKeywords || specificDescriptors
+				? `If you do not have 5 recommendations that fit these criteria perfectly, do your best to suggest other baby names that I might like.`
 				: ''
-		} Please return this response as a numbered list with the ${cinemaType}'s title, followed by a colon, and then a brief description of the ${cinemaType}. There should be a line of whitespace between each item in the list.`;
+		} Please return this response as a numbered list with the baby name, followed by a colon, and then a brief description of the baby name and why you believe it fits the keywords I described. There should be a line of whitespace between each item in the list.`;
 		const response = await fetch('/api/getRecommendation', {
 			method: 'POST',
 			body: JSON.stringify({ searched: fullSearchCriteria }),
@@ -114,14 +114,14 @@
 		recommendations = [];
 		searchResponse = '';
 		endStream = false;
-		cinemaType = 'tv show';
-		selectedCategories = [];
+		// cinemaType = 'tv show';
+		selectedKeywords = [];
 		specificDescriptors = '';
 	}
 </script>
 
 <div>
-	<div class="h-screen w-full bg-cover fixed" style="background-image: url(/background.png)">
+	<div class="h-screen w-full bg-cover fixed" style="background-image: url(/chuttersnap-JChRnikx0tM-unsplash.jpg)">
 		<div
 			class={`${
 				makeRecommendation ? 'backdrop-blur-md' : ''
@@ -151,8 +151,7 @@
 			<div in:fade class="w-full max-w-4xl mx-auto">
 				<div class="w-full mb-8">
 					<Form
-						bind:cinemaType
-						bind:selectedCategories
+						bind:selectedKeywords
 						bind:loading
 						bind:specificDescriptors
 						on:click={search}

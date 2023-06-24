@@ -5,7 +5,34 @@
 	export let incomingStream;
 </script>
 
-<div class="relative flex flex-col md:flex-row bg-neutral-800/70 shadow-md p-6">
+<div class="relative flex flex-col bg-neutral-800/70 shadow-md p-6">
+	<div class="z-40 flex flex-col justify-between">
+		<div>
+			<!-- <div class="flex items-end mb-4">
+				<div class="font-bold text-slate-200 text-3xl">
+					{recommendation.title}
+				</div>
+			</div> -->
+			<div class="text-slate-200/90 mb-4">
+				{#if incomingStream}
+					{incomingStream}
+				{:else}
+					<div
+						class="w-full h-2 rounded-full bg-gradient-to-r from-white/20 via-white/10 to-white/20 background-animate mb-2"
+					/>
+					<div
+						class="w-full h-2 rounded-full bg-gradient-to-r from-white/20 via-white/10 to-white/20 background-animate mb-2"
+					/>
+					<div
+						class="w-1/2 h-2 rounded-full bg-gradient-to-r from-white/20 via-white/10 to-white/20 background-animate"
+					/>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="relative flex flex-col md:flex-row bg-neutral-800/70 shadow-md p-6">
 	<div
 		class="bg-gradient-to-br from-neutral-900 via-neutral-700 to-neutral-900 background-animate text-white/50 flex items-center justify-center h-[250px] flex-none w-1/5 "
 	>
@@ -77,7 +104,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <style>
 	body {

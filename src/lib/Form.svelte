@@ -1,14 +1,14 @@
 <script>
 	import LoadingIndicator from './Loading.svelte';
 
-	/**
-	 * @type string
-	 */
-	export let cinemaType;
+	// /**
+	//  * @type string
+	//  */
+	// export let cinemaType;
 	/**
 	 * @type Array<string>
 	 */
-	export let selectedCategories;
+	export let selectedKeywords;
 	/**
 	 * @type string
 	 */
@@ -18,71 +18,118 @@
 	 */
 	export let loading;
 
-	const categoryTypes = [
-		'Action',
-		'Adventure',
-		'Animation',
-		'Biography',
-		'Comedy',
-		'Crime',
-		'Documentary',
-		'Drama',
-		'Family',
-		'Fantasy',
-		'Film-Noir',
-		'History',
-		'Horror',
-		'Musical',
-		'Mystery',
-		'Romance',
-		'Sci-Fi',
-		'Sport',
-		'Thriller',
-		'War',
-		'Western',
-		'Art-house',
-		'Black-Comedy',
-		'Chick-flick',
-		'Cult-classic',
-		'Dark-Comedy',
-		'Epic',
-		'Erotic',
-		'Experimental',
-		'Fairy-tale',
-		'Film-within-a-film',
-		'Futuristic',
-		'Gangster',
-		'Heist',
-		'Historical',
-		'Holiday',
-		'Indie',
-		'Juvenile',
-		'Melodrama',
-		'Monster',
-		'Political',
-		'Psychological',
-		'Road-movie',
-		'Satire',
-		'Science-Fiction',
-		'Slapstick',
-		'Social-issue',
-		'Superhero',
-		'Surreal',
-		'Teen',
-		'Vampire',
-		'Zombie'
+	const groupedCategoryTypes = [
+		// Emotion-related or values, quite significant in naming a baby.
+		[
+			'Love',
+			'Joy',
+			'Hope',
+			'Grace',
+			'Faith',
+			'Courage',
+			'Bravery',
+			'Strength',
+			'Honor',
+			'Truth',
+			'Compassion',
+			'Charity',
+			'Patience',
+			'Wisdom',
+			'Trust',
+			'Peace',
+			'Fidelity',
+		],
+		// These might signify the child's potential characteristics.
+		[
+			'Kindness',
+			'Lively',
+			'Active',
+			'Vitality',
+			'Passion',
+			'Dynamic',
+			'Playful',
+			'Strong',
+			'Masculine',
+			'Enthusiasm',
+			'Motivation',
+			'Creative',
+			'Imagination',
+			'Inspiration',
+			'Curiosity',
+			'Inquisitive',
+			'Daring',
+			'Zeal',
+			'Ambition',
+			'Energetic',
+			'Vigorous',
+			'Movement',
+			'Discovery',
+			'Radiance',
+			'Beauty',
+			'Resilience',
+			'Noble',
+			'Loyal',
+			'Sincere',
+			'Integrity',
+		],
+		// Nature-related words are often used in names, but might be of secondary importance.
+		[
+			'Sunshine',
+			'Summer',
+			'Warmth',
+			'Rain',
+			'Storm',
+			'Snow',
+			'Cloud',
+			'Breeze',
+			'Mist',
+			'Sunny',
+			'Gale',
+			'Calm',
+			'Dawn',
+			'Dusk',
+			'Rainbow',
+			'Spring',
+			'Autumn',
+			'Winter',
+			'Frost',
+			'Harvest',
+			'Blossom',
+			'Leaf',
+			'Woodland',
+			'Grass',
+			'Gusty',
+			'Warm',
+			'Chill',
+			'Sunbeam',
+			'Drizzle',
+			'Adventure',
+			'Explorer',
+			'Energy',
+			'Sporty',
+			'Thrill',
+			'Light',
+			'Serenity',
+			'Harmony',
+			'Prosperity',
+			'Fortitude',
+		],
 	];
 
-	let cinemaTypes = [
-		{ value: 'tv show', title: 'TV Show' },
-		{ value: 'movie', title: 'Movie' },
-		{ value: 'tv show or movie', title: 'No Preference' }
-	];
+	// Now, we flatten the 2D array into a 1D array to get a single list of keywords.
+	const categoryTypes = groupedCategoryTypes.reduce((accumulator, value) => accumulator.concat(value), []);
+
+
+	// let cinemaTypes = [
+	// 	{ value: 'tv show', title: 'TV Show' },
+	// 	{ value: 'movie', title: 'Movie' },
+	// 	{ value: 'tv show or movie', title: 'No Preference' }
+	// ];
 </script>
 
 <div class="pt-6 md:pt-10 text-slate-200">
 	<div>
-		<div class="mb-8">
+		<!-- <div class="mb-8">
 			<div class="mb-4 font-semibold text-lg">What kind of cinema are you searching for?</div>
 			<div class="flex items-center">
 				{#each cinemaTypes as type (type.value)}
@@ -91,29 +138,29 @@
 							cinemaType = type.value;
 						}}
 						class={`${
-							cinemaType === type.value ? 'bg-pink-600/40' : ''
-						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-pink-600`}
+							cinemaType === type.value ? 'bg-cyan-600/40' : ''
+						} text-slate-200 font-bold mr-2 text-sm mt-2 py-2 px-4 rounded-full border border-cyan-600`}
 					>
 						{type.title}
 					</button>
 				{/each}
 			</div>
-		</div>
+		</div> -->
 		<div>
 			<div class="mb-4 font-semibold text-lg">
-				Select all categories that you want the show or movie to include.
+				Select all keyword that you want the name to represent.
 			</div>
 			<div class="flex items-center flex-wrap">
 				{#each categoryTypes as category}
 					<label
 						class={`${
-							selectedCategories.includes(category) ? 'bg-pink-600/40' : ''
-						} text-slate-200 font-bold mr-2 mt-2 text-sm py-2 px-4 rounded-full border border-pink-600`}
+							selectedKeywords.includes(category) ? 'bg-cyan-600/40' : ''
+						} text-slate-200 font-bold mr-2 mt-2 text-sm py-2 px-4 rounded-full border border-cyan-600`}
 					>
 						<input
 							class="hidden"
 							type="checkbox"
-							bind:group={selectedCategories}
+							bind:group={selectedKeywords}
 							name="categories"
 							value={category}
 						/>
@@ -124,19 +171,19 @@
 		</div>
 		<div class="mt-8">
 			<div class="mb-4 font-semibold text-lg">
-				Write any other specifications here. Be as picky as you'd like.
+				Write any other meanings, keywords, or specifications here. Be as picky as you'd like.
 			</div>
 			<textarea
 				bind:value={specificDescriptors}
 				class="bg-white/40 border border-white/0 p-2 rounded-md placeholder:text-slate-800 text-slate-900 w-full h-20 font-medium"
-				placeholder="Ex. Must have at least 2 seasons and be on Netflix or Hulu."
+				placeholder="Ex. Must start with a Z."
 			/>
 			<button
 				on:click
 				class={`${
 					loading
-						? 'bg-pink-400/50'
-						: 'bg-pink-600 hover:bg-gradient-to-r from-pink-700 via-pink-600 to-pink-700 '
+						? 'bg-cyan-400/50'
+						: 'bg-cyan-600 hover:bg-gradient-to-r from-cyan-700 via-cyan-600 to-cyan-700 '
 				} mt-4 w-full h-10 text-white font-bold p-3 rounded-full flex items-center justify-center`}
 			>
 				{#if loading}
