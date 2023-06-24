@@ -1,0 +1,16 @@
+<div>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- draw the face -->
+        <circle cx="12" cy="14" r="9" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <!-- draw the hair above the head -->
+        <path d="M6 6 Q8 3, 10 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M10 6 Q12 3, 14 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M14 6 Q16 3, 18 6" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <!-- draw the left eye -->
+        <circle cx="8" cy="12" r="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <!-- draw the right eye -->
+        <circle cx="16" cy="12" r="1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <!-- draw the smile -->
+        <path d="M8 17 Q12 20, 16 17" stroke="currentColor" stroke-width="1.5" fill="none"/>
+    </svg>
+</div>

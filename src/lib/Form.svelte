@@ -127,7 +127,7 @@
 	// ];
 </script>
 
-<div class="pt-6 md:pt-10 text-slate-200">
+<div class="pt-0 md:pt-0 text-slate-200">
 	<div>
 		<!-- <div class="mb-8">
 			<div class="mb-4 font-semibold text-lg">What kind of cinema are you searching for?</div>
@@ -146,6 +146,9 @@
 				{/each}
 			</div>
 		</div> -->
+		<div class="mb-4 font-semibold text-3xl">
+			Generate your baby name.
+		</div>
 		<div>
 			<div class="mb-4 font-semibold text-lg">
 				Select all keyword that you want the name to represent.
